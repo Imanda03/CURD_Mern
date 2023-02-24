@@ -1,17 +1,17 @@
-import mongoose from 'mongoose';
-import autoIncrement from 'mongoose-auto-increment';
+import mongoose from "mongoose";
+import autoIncrement from "mongoose-auto-increment";
 
-// how our document look like
+
 const userSchema = mongoose.Schema({
-    name: String,
+    fullname: String,
     username: String,
     email: String,
-    phone: Number
-});
+    phone: String
+})
 
 autoIncrement.initialize(mongoose.connection);
-userSchema.plugin(autoIncrement.plugin, 'user');
-// we need to turn it into a model
+userSchema.plugin(autoIncrement.plugin, "user");
+
 const user = mongoose.model('user', userSchema);
 
 export default user;
